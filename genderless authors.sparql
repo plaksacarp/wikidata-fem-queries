@@ -1,0 +1,13 @@
+#Writers without gender.
+#title: P106=occupation, Q36180=writer
+SELECT DISTINCT ?author ?authorLabel
+WHERE
+{
+  ?author wdt:P106 wd:Q36180 .    
+  FILTER NOT EXISTS {?author wdt:P21 wd:Q6581097 .}
+  
+  SERVICE wikibase:label { #BabelRainbow
+    bd:serviceParam wikibase:language "[AUTO_LANGUAGE],fr,ar,be,bg,bn,ca,cs,da,de,el,en,es,et,fa,fi,he,hi,hu,hy,id,it,ja,jv,ko,nb,nl,eo,pa,pl,pt,ro,ru,sh,sk,sr,sv,sw,te,th,tr,uk,yue,vec,vi,zh"
+  }
+}
+LIMIT 5
